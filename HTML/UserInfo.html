@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>E-Commerce Shopping Cart</title>
+    <!--
+    <style>
+        h1 {
+            color: rgb(0, 0, 255)
+        }
+    </style>
+-->
+    <!-- <link rel=stylesheet href="../CSS/styles.css"> -->
+</head>
+<body>
+
+    <header id=mainHeader>
+        <div class=container>
+            <h1>
+                E-Commerce Shopping Cart
+            </h1>
+        </div>
+    </header>
+
+    <nav id = "mainNav">
+        <div class=container>
+            <ul>
+                <li><a href=#>User Information</a></li>
+                <li><a href=#>ShoppingCart</a></li>
+                <li><a href=#>Shipping Information</a></li>
+                <li><a href=#>Shopping Cart</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- <section id=jumbo>
+        <div class=container>
+            <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. At iure dicta, nam commodi quam alias nostrum placeat eligendi fuga veniam odio ipsum ad nulla minima quae omnis porro deleniti libero.</h1>
+        </div>
+    </section> -->
+
+    <div class=container>
+        <p>
+            Welcome back, user
+        </p>
+    </div>
+
+    <form action = "server.php">
+            <fieldset>
+
+                <legend>User information: </legend>
+
+                First name: <br>
+                <input type = "text" name = "firstname" value = "" placeholder="first name goes here..."> <br>
+
+                Last name: <br>
+                <input type = "text" name = "lastname" value = "" placeholder="last name goes here..."> <br><br>
+
+                Shipping Info: <br>
+                <input type = "text" name = "address1" value = "" placeholder="address line 1..."> <br>
+                <input type = "text" name = "address2" value = "" placeholder="address line 2..."> <br>
+                <input type = "text" name = "city" value = "" placeholder="city goes here..."> <br>
+                <input type = "text" name = "state" value = "" placeholder="state goes here..."> <br>
+                <input type = "text" name = "zipcode" value = "" placeholder="zipcode goes here..."> <br>
+
+                <input type = "submit" value = "submit">
+
+    
+            </fieldset>
+        </form>
+
+    
+
+</body>
+</html>
