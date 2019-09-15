@@ -7,23 +7,53 @@
     <title>Shipping Info</title>
 </head>
 <body>
-        <header id=mainHeader>
-                <div class=container>
-                    <h1>
-                        E-Commerce Shipping Info
-                    </h1>
-                </div>
-            </header>
+    <header id=mainHeader>
+            <div class=container>
+                <h1>
+                    E-Commerce Shopping Cart
+                </h1>
+            </div>
+        </header>
+    
+        <nav id = "mainNav">
+            <div class=container>
+                <ul>
+                    <li><a href=#>User Information</a></li>
+                    <li><a href=#>ShoppingCart</a></li>
+                    <li><a href=#>Shipping Information</a></li>
+                    <li><a href=#>Shopping Cart</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <form action = "server.php">
+                <fieldset>
+    
+                    <legend>User information: </legend>
+    
+                    First name: <br>
+                    <input type = "text" name = "firstname" value = "" placeholder="first name goes here..."> <br>
+    
+                    Last name: <br>
+                    <input type = "text" name = "lastname" value = "" placeholder="last name goes here..."> <br><br>
+    
+                    Shipping Info: <br>
+                    <input type = "text" name = "address1" value = "" placeholder="address line 1..." maxlength="100"> <br>
+                    <input type = "text" name = "address2" value = "" placeholder="address line 2..." maxlength="100"> <br>
+                    <input type = "text" name = "city" value = "" placeholder="city goes here..." maxlength="100"> <br>
+                    State:
+                    <select name=state id=stateSelect> <br>
+                        <option value=TX>TX</option>
+                        <option value=NY>NY</option>
+                    </select> <br>
+                    <input type = "text" name = "zipcode" value = "" minlength="5" placeholder="zipcode goes here..." maxlength="9"> <br>
+                    <input type = "text" name = "phone" value = "" placeholder="phone # goes here..." maxlength="12"> <br>
+                    <input type = "text" name = "email" value = "" placeholder="email goes here..." maxlength="100"> <br>
+    
+                    <input type = "submit" value = "submit">
+    
         
-            <nav id = "mainNav">
-                <div class=container>
-                    <ul>
-                        <li><a href=#>User Information</a></li>
-                        <li><a href=#>ShoppingCart</a></li>
-                        <li><a href=#>Shipping Information</a></li>
-                        <li><a href=#>Shopping Cart</a></li>
-                    </ul>
-                </div>
-            </nav>
+                </fieldset>
+            </form>
 </body>
 </html>
