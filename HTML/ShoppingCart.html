@@ -15,18 +15,41 @@
                 </div>
             </header>
         
+            
             <nav id = "mainNav">
                 <div class=container>
                     <ul>
                         <li><a href=#>User Information</a></li>
                         <li><a href=#>ShoppingCart</a></li>
                         <li><a href=#>Shipping Information</a></li>
-                        <li><a href=#>Shopping Cart</a></li>
                     </ul>
                 </div>
             </nav>
+         
+        <form action = "server.php"></form>
+            <!--css uses this class if styling product purchase field-->
+            <div class = "productPurchaseField"> 
+                <fieldset>   
+            
+                    Product
+                    <select>
+                        <option value="Bananas">Bananas ($.50 / lb)</option>
+                        <option value="peaches">Peaches ($.50 / lb)</option>
+                        <option value="Apple">Apple ($.50 / lb)</option>
+                        <option value="Love">Love ($999 / lb)</option>
+                    </select>
+              
+                    <!--javascript code to detect if keypress is a number... move to js file-->
+                    <input type = "text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name = "unitsNumber" value = "" placeholder="# Unit" maxlength="9" style="width: 50px;"/>
+                    <input type="text" name="price" value="Price" readonly style="width: 50px;">
+                
+                    <br><br><br>
+                    <button type="button"  onclick="alert('New Product Added')" >Add another Product</button>
 
-            <!-- add page elements here -->
-
-</body>
+                </fieldset>        
+            </div>
+            <br>
+            <input type="text" name="totalPrice" value="Total Price" readonly style="width: 90px;">
+        </form>
+    </body>
 </html>
