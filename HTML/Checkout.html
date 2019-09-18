@@ -25,7 +25,43 @@
                     </ul>
                 </div>
             </nav>
+        <fieldset>
+            <div class = "app-container">
+                <p>Check Out</p>
 
-            <!-- add page elements here -->
+                <p> Total Shopping Amount:</p>
+                <p> Total Tax Amount:</p>
+                <p> Total Shipping Amount:</p>
+                <p> Total Amount Due:</p>
+            <div class = "card-details">
+                <p>Card Details</p>
+                <fieldset>
+                    <select>
+                        <option value="visa"> Visa</option>
+                        <option value="master-card"> MasterCard</option>
+                        <option value="American-Express"> American Express</option>
+                    </select>
+                    <div class = "card-num">
+                    <label>
+                        Card Number:
+                    </label>
+                    <input type="text" class="card-num" placeholder="xxxx-xxxx-xxxx-xxxx">
+
+                </div>
+                    <div class = "card-exp">
+                        <label> Expiration Date:</label>
+                        <input type ="text" class="card-num" placeholder="MM/YYYY">
+                    </div>
+                    <div class = "agreement">
+                        <input type="checkbox" value="legal">I agree and authorize the amount to be charged to my credit card <br>
+                    </div>
+                    <button type="button"  onclick="alert('Success')" >Complete Purchase</button>
+                </fieldset>
+
+            </div>
+
+            </div>
+        </fieldset>
+
 </body>
 </html>
