@@ -35,6 +35,13 @@ body{
 #mainNav li:hover {
     background: #aaa;
 }
+
+#mainNav a.live:link, a.live:visited {
+    font-weight: bold;
+}
+
+
+
 /* #jumbo {
     background-image: url('../Borders.png');
     background-position: center center;
