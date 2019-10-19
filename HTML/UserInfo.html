@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>E-Commerce Shopping Cart</title>
-    <script src="main.js"></script>
+    <script src="../JS/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel=stylesheet href="../CSS/styles.css">
 </head>
@@ -42,9 +42,9 @@
         </p>
     </div>
 
-    <form action = "server.php">
+    <form name = "myForm" action = "server.php" onsubmit = "return validateForm()" method = "POST">
             <fieldset>
-
+            
                 <legend>User information: </legend>
 
                 First name: <br>
@@ -63,7 +63,7 @@
                     <option value=NY>NY</option>
                 </select> <br>
                 <input type = "text" name = "zipcode" value = "" minlength="5" placeholder="zipcode goes here..." maxlength="9"> <br>
-                <input type = "text" name = "phone" value = "" placeholder="phone # goes here..." maxlength="12"> <br>
+                <input type = "text" name = "phone" value = "" placeholder="###-###-####" maxlength="12"> <br>
                 <input type = "text" name = "email" value = "" placeholder="email goes here..." maxlength="100"> <br>
 
                 <input type = "submit" value = "submit">
