@@ -6,9 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Checkout</title>
     <script src="../JS/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel=stylesheet href="../CSS/styles.css">
 </head>
-<body>
+<body onload="OnCheckoutPageLoad();">
         <header id=mainHeader>
             <div class=container>
                 <h1>
@@ -28,17 +29,22 @@
             </div>
         </nav>
         <fieldset>
+            <form action = "server.php" target = "_blank"  method = "POST" name = "checkoutForm"> 
             <div class = "app-container">
-                <p>Check Out</p>
-
-                <p> Total Shopping Amount:</p>
+                <p>Check Out (make sure to enable cookies)</p>
+               
+                <p> Total Shopping Amount:</p>  
+                <input type = "text" name = "totalShopAmt" value = ""  readonly placeholder="Total Amount">
                 <p> Total Tax Amount:</p>
+                <input type = "text" name = "totalTax" value = ""  readonly placeholder="Total Amount">
                 <p> Total Shipping Amount:</p>
+                <input type = "text" name = "totalShipping" value = ""  readonly placeholder="Total Amount">
                 <p> Total Amount Due:</p>
+                <input type = "text" name = "completeTotal" value = ""  readonly placeholder="Total Amount">
             <div class = "card-details">
                 <p>Card Details</p>
                 <fieldset>
-                    <select>
+                    <select name="cardType">
                         <option value="visa"> Visa</option>
                         <option value="master-card"> MasterCard</option>
                         <option value="American-Express"> American Express</option>
@@ -47,18 +53,19 @@
                     <label>
                         Card Number:
                     </label>
-                    <input type="text" class="card-num" placeholder="xxxx-xxxx-xxxx-xxxx">
+                    <input type="text" name = "cardNum" class="card-num" placeholder="xxxx-xxxx-xxxx-xxxx" onkeypress='return validInput()' onchange="return ValidateCard(this)">
 
                 </div>
                     <div class = "card-exp">
                         <label> Expiration Date:</label>
-                        <input type ="text" class="card-num" placeholder="MM/YYYY">
+                        <input name = "cardDate" type ="text" class="card-num" placeholder="MM/YYYY" onkeypress='return validInput2()' onchange="return ValidateExpiration(this)">
                     </div>
                     <div class = "agreement">
-                        <input type="checkbox" value="legal">I agree and authorize the amount to be charged to my credit card <br>
+                        <input type="checkbox" name = "terms" value="legal">I agree and authorize the amount to be charged to my credit card <br>
                     </div>
-                    <button type="button"  onclick="alert('Success')" >Complete Purchase</button>
-                </fieldset>
+                    <button type="button"  onclick='return ValidateInformation()' >Complete Purchase</button>
+                </form>
+            </fieldset>
 
             </div>
 

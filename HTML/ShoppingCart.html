@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Shopping Cart</title>
-    <script src="main.js"></script>
+    <script src="../JS/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel=stylesheet href="../CSS/styles.css">
 </head>
@@ -23,37 +23,38 @@
                 <div class=container>
                     <ul>
                         <li><a href=UserInfo.html>User Information</a></li>
-                        <li><a href=ShoppingCart.html class=live>ShoppingCart</a></li>
+                        <li><a href=ShoppingCart.html class=live>Shopping Cart</a></li>
                         <li><a href=ShippingInfo.html>Shipping Information</a></li>
                         <li><a href=Checkout.html>Checkout</a></li>
                     </ul>
                 </div>
             </nav>
          
-        <form action = "server.php"></form>
+        <form action = "server.php" name = "productForm">
             <!--css uses this class if styling product purchase field-->
+            <fieldset> 
             <div class = "productPurchaseField"> 
-                <fieldset>   
-            
+                   
+                    
                     Product
-                    <select>
-                        <option value="Bananas">Bananas ($.50 / lb)</option>
-                        <option value="peaches">Peaches ($.50 / lb)</option>
-                        <option value="Apple">Apple ($.50 / lb)</option>
-                        <option value="Love">Love ($999 / lb)</option>
+                    <select id = "productSelection0" onchange="calculateUnitPrice(this)" name = "productList">
+                        <option id = "product0" value="Bananas">Bananas ($.50 / lb)</option>
+                        <option id = "product1" value="peaches">Peaches ($.60 / lb)</option>
+                        <option id = "product2" value="Apple">Apple ($.70 / lb)</option>
+                        <option id = "product3" value="Love">Love ($10 / lb)</option>
                     </select>
               
                     <!--javascript code to detect if keypress is a number... move to js file-->
-                    <input type = "text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name = "unitsNumber" value = "" placeholder="# Unit" maxlength="9" style="width: 50px;"/>
-                    <input type="text" name="price" value="Price" readonly style="width: 50px;">
+                    <input id = "numUnits0" type = "text" onkeypress='return validInput()' onchange = 'CalculateTotalPrice(this)' name = "unitsNumber" value = "" placeholder="# Unit" maxlength="9" style="width: 50px;"/>
+                    <input id ="unitPrice0" type="text" name="unit0" value="" placeholder = "Total Price" readonly style="width: 50px;">
                 
                     <br><br><br>
                     <button type="button"  onclick="alert('New Product Added')" >Add another Product</button>
-
-                </fieldset>        
+      
             </div>
-            <br>
             <input type="text" name="totalPrice" value="Total Price" readonly style="width: 90px;">
+            </fieldset>
+
         </form>
     </body>
 </html>

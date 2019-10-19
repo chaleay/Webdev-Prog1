@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Checkout</title>
+    <script src="../JS/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel=stylesheet href="../CSS/styles.css">
+</head>
+<body onload = "OnConfirmPageLoad();">
+        <header id=mainHeader>
+            <div class=container>
+                <h1>
+                    E-Commerce Shopping Cart
+                </h1>          
+            </div>
+        </header>
+        
+        <nav id = "mainNav">
+            <div class= "container">
+                <ul>
+					<li><a href=UserInfo.html>User Information</a></li>
+					<li><a href=ShoppingCart.html>ShoppingCart</a></li>
+					<li><a href=ShippingInfo.html>Shipping Information</a></li>
+					<li><a href=Checkout.html class=live>Checkout</a></li>
+                </ul>
+            </div>
+        </nav>
+        <fieldset>
+            <div class = "container centerText">
+                <h2>Order Confirmed!</h2>
+                <div class = "app-container">
+                    <h4>Order Summary</h4>
+                    <p> Total Shopping Amount:</p>  
+                    <input type = "text" id = "totalId1" value = ""  readonly placeholder="Total Amount">
+                    <p> Total Tax Amount:</p>
+                    <input type = "text" id = "totalId2" value = ""  readonly placeholder="Total Amount">
+                    <p> Total Shipping Amount:</p>
+                    <input type = "text" id = "totalId3" value = ""  readonly placeholder="Total Amount">
+                    <p> Total Amount Due:</p>
+                    <input type = "text" id = "totalId4" value = ""  readonly placeholder="Total Amount">   
+
+
+
+            </div>
+        </fieldset>
+
+</body>
+</html>
