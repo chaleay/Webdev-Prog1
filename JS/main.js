@@ -1,3 +1,5 @@
+
+//regex checks
 const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
 const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -6,9 +8,13 @@ const visa = new RegExp("^4[0-9]{12}(?:[0-9]{3})?$");
 const amex = new RegExp("^3[47][0-9]{13}$");
 const mastercard = new RegExp("^5[1-5][0-9]{14}$");
 const exp = /^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/;
+////////////
 
-var itemsInShoppingList = new Array();
-var thisObjectsPrice = 0;
+//cart variable
+var cart = new Array();
+var currentlySelectedItem = null;
+
+//totalPrice
 var totalPrice = 0;
 var completeTotal = 0;
 
@@ -47,46 +53,115 @@ function validInput2(){
 }
 
 function calculateUnitPrice(select){
-      //first get the dom for the (#unit price) indicator
-       var unitPrice = document.forms["productForm"]["unit0"];
+      //reset total price/units number if new item selected
+      ShoppingReset();   
+
+
        var selectedOptionIndex = select.selectedIndex;
        switch(selectedOptionIndex){
          case 0:
-           thisObjectsPrice = .50;
+           var item = {
+             name: "Banana",
+             price : .50,
+           };
            break;
         case 1:
-           thisObjectsPrice = .60;
+           var item = {
+            name: "Peaches",
+            price : .60,
+          };
            break;
         case 2:
-            thisObjectsPrice = .70;
+           var item = {
+            name: "Apple",
+            price : .70,
+          };
             break;
         case 3:
-            thisObjectsPrice = 10;
+           var item = {
+            name: "Love",
+            price : 10,
+          };
             break;
        }
 
-       unitPrice.value = "$" + thisObjectsPrice.toFixed(2);
-
-
-       //if a total value has been computed, then compute the new total value on switching products
-       if(document.forms["productForm"]["unitsNumber"].value != "" && document.forms["productForm"]["totalPrice"].value != ""){
-         CalculateTotalPrice(document.forms["productForm"]["unitsNumber"]);
-       }
-          
+       currentlySelectedItem = item;
+        
+      
 }
 
-function CalculateTotalPrice(unitInput){
-     var totalPriceInput = document.forms["productForm"]["totalPrice"];
-     totalPrice = thisObjectsPrice * parseInt(unitInput.value);
-     totalPriceInput.value = "$" + totalPrice.toFixed(2);
+function CalculateTotalUnitPrice(unitInput){
+  var totalUnitPriceInput = document.forms["productForm"]["unitPrice0"]
+  if((unitInput.value == null ||unitInput.value == '') || currentlySelectedItem == null)
+    {
+      totalUnitPriceInput.value = "";
+      return;
+    }
+   
+
+     currentlySelectedItem.units = parseInt(unitInput.value);
+     totalUnitPrice = currentlySelectedItem.price * currentlySelectedItem.units;
+     totalUnitPriceInput.value = "$" + totalUnitPrice.toFixed(2);
      
-     //store info for later use
-     sessionStorage.setItem('totalPrice', totalPrice);
-     var prod = document.forms["productForm"]["productList"];
-     sessionStorage.setItem('itemBought', prod.options[prod.selectedIndex].value);
-     sessionStorage.setItem('unitsBought', unitInput.value);
+       
 
 }
+
+function ShoppingReset(){
+  //reset total unitPrice
+  document.forms["productForm"]["unitPrice0"].value = "";
+  //reset unit #
+  document.forms["productForm"]["unitsNumber"].value = "";
+}
+
+function AddToCart()
+{
+  if(!ValidateCartAdd())
+    return false;
+  
+  cart.push(currentlySelectedItem);
+  alert("Item sucessfully added to Cart: " + currentlySelectedItem.name + "   Unit #: " + currentlySelectedItem.units);
+  currentlySelectedItem = null;
+  CalculateTotalPrice();
+  ShoppingReset();
+
+  //store session vars
+  sessionStorage.setItem("cart", cart);
+  sessionStorage.setItem("totalPrice", totalPrice);
+  
+}
+
+function CalculateTotalPrice(){
+  totalPrice = 0;
+  var totalPriceVal = document.forms["productForm"]["totalPrice"];
+  cart.forEach(function(element){
+      totalPrice += element.price * element.units;
+  })
+  totalPriceVal.value = "$" + totalPrice.toFixed(2);
+}
+
+function ShowCart(){
+  
+  var cartString = new String();
+  cart.forEach(function(item){
+    cartString += item.name + ", Unit #: " + item.units + ", Price: " + (item.units * item.price).toFixed(2) + '\n';
+  })
+
+  alert("Cart contains " + cart.length + " items: \n" + cartString);
+}
+
+function ValidateCartAdd(){
+  if(!currentlySelectedItem){
+    alert("Please select an item to add to the cart");
+    return false;
+  }
+  else if(currentlySelectedItem.units == 0 || document.forms["productForm"]["unitPrice0"].value ==""){
+    alert("Please enter a number of units greater than 0");
+    return false;
+  }
+  else
+    return true;
+  }
 
 function OnCheckoutPageLoad(){
   //get form elements
@@ -182,6 +257,56 @@ function ValidateInformation(){
     return false;
   }
 }
+
+  function StoreShippingInfo(){
+    //load fields to store inputs
+    var address1Store = document.forms["userInfo"]["address1"];
+    var address2Store = document.forms["userInfo"]["address2"];
+    var zipStore = document.forms["userInfo"]["zipcode"];
+    var stateStore = document.forms["userInfo"]["state"];
+    var cityStore = document.forms["userInfo"]["city"];
+
+    sessionStorage.setItem("address1", address1Store.value);
+    sessionStorage.setItem("address2", address2Store.value);
+    sessionStorage.setItem("zipStore", zipStore.value);
+    sessionStorage.setItem("stateStore", stateStore.selectedIndex);
+    sessionStorage.setItem("cityStore", cityStore.value);
+
+    alert("User info saved sucessfully");
+
+  }
+
+  function LoadShippingInfo(checkbox){
+    var address1 = document.forms["shippingInfo"]["address1"];
+    var address2 = document.forms["shippingInfo"]["address2"];
+    var zip = document.forms["shippingInfo"]["zipcode"];
+    var state = document.forms["shippingInfo"]["state"];
+    var city = document.forms["shippingInfo"]["city"];
+    
+    if(!checkbox.checked)
+    {
+      console.debug("here");
+      address1.readOnly = false;
+      address2.readOnly = false;
+      zip.readOnly = false;
+      state.readOnly = false;
+      city.readOnly = false;
+      return;
+    }
+    
+    address1.value = sessionStorage.getItem("address1");
+    address2.value = sessionStorage.getItem("address2");
+    zip.value = sessionStorage.getItem("zipStore");
+    state.selectedIndex = parseInt(sessionStorage.getItem("stateStore"));
+    city.value = sessionStorage.getItem("cityStore");
+
+    address1.readOnly = true;
+    address2.readOnly = true;
+    zip.readOnly = true;
+    state.readOnly = true;
+    city.readOnly = true;
+  }
+
 
 
 

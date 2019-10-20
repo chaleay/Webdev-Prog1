@@ -45,14 +45,13 @@
                     </select>
               
                     <!--javascript code to detect if keypress is a number... move to js file-->
-                    <input id = "numUnits0" type = "text" onkeypress='return validInput()' onchange = 'CalculateTotalPrice(this)' name = "unitsNumber" value = "" placeholder="# Unit" maxlength="9" style="width: 50px;"/>
-                    <input id ="unitPrice0" type="text" name="unit0" value="" placeholder = "Total Price" readonly style="width: 50px;">
-                
-                    <br><br><br>
-                    <button type="button"  onclick="alert('New Product Added')" >Add another Product</button>
+                    <input id = "numUnits0" type = "text" onkeypress='return validInput()' onchange = 'CalculateTotalUnitPrice(this)' name = "unitsNumber" value = "" placeholder="# Unit" maxlength="9" style="width: 50px;"/>
+                    <input id ="unitPrice0" type="text" name="unit0" value="" placeholder = "Price" readonly style="width: 50px;">
+                    <button type="button"  onclick= 'AddToCart()'>Add Product To Cart</button>
       
             </div>
             <input type="text" name="totalPrice" value="Total Price" readonly style="width: 90px;">
+            <button type="button"  onclick= 'ShowCart()'>See Cart</button>
             </fieldset>
 
         </form>
