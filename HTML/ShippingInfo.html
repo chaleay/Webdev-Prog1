@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Shipping Info</title>
-    <script src="main.js"></script>
+    <script src="../JS/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel=stylesheet href="../CSS/styles.css">
 </head>
@@ -29,14 +29,14 @@
             </div>
         </nav>
 
-        <form action = "server.php">
+        <form action = "server.php" name = "shippingInfo">
                 <fieldset>
     
                     <legend>User information: </legend>
     
                     
                     Shipping Info: <br>
-                    Use Physical Address: <input type=checkbox name="physicalAddressCheckbox"> <br>
+                    Use Physical Address: <input type=checkbox onclick = 'LoadShippingInfo(this)' name="physicalAddressCheckbox"> <br>
                     <input type = "text" name = "address1" value = "" placeholder="address line 1..." maxlength="100"> <br>
                     <input type = "text" name = "address2" value = "" placeholder="address line 2..." maxlength="100"> <br>
                     <input type = "text" name = "city" value = "" placeholder="city goes here..." maxlength="100"> <br>
