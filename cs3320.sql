@@ -1,3 +1,4 @@
+--This is the exported database of our mysql database that is active on our localhost. 
 -- phpMyAdmin SQL Dump
 -- version 4.9.0.1
 -- https://www.phpmyadmin.net/
@@ -146,10 +147,10 @@ CREATE TABLE `userinformation` (
 -- Dumping data for table `userinformation`
 --
 
-INSERT INTO `userinformation` (`userId`, `fullName`, `address1`, `address2`, `city`, `state`, `zip`) VALUES
-('01', 'John Doe', '512 Example Ave', 'Apt 246', 'San Marcos', 'Texas', 78666);
-COMMIT;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
