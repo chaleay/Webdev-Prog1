@@ -272,8 +272,6 @@ function ValidateInformation(){
     sessionStorage.setItem("stateStore", stateStore.selectedIndex);
     sessionStorage.setItem("cityStore", cityStore.value);
 
-    alert("User info saved sucessfully");
-
   }
 
   function LoadShippingInfo(checkbox){
