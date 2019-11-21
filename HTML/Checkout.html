@@ -5,30 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Checkout</title>
-    <script src="../JS/main.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel=stylesheet href="../CSS/styles.css">
+     <!--Google fonts-->
+     <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+ 
+     <!--FontAwesome Kit-->
+     <script src="https://kit.fontawesome.com/93d15b6e32.js" crossorigin="anonymous"></script>
+   
+     <!-- JavaScript -->
+     <script src="../JS/main.js"></script>
+     
+     <!-- Jquery -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     
+     <!-- style -->
+     <link rel=stylesheet href="../CSS/styles.css">
+
 </head>
 <body onload="OnCheckoutPageLoad();">
-        <header id=mainHeader>
-            <div class=container>
-                <h1>
-                    E-Commerce Shopping Cart
-                </h1>
-            </div>
-        </header>
-        
-        <nav id = "mainNav">
-            <div class=container>
-                <ul>
-					<li><a href=UserInfo.html>User Information</a></li>
-					<li><a href=ShoppingCart.html>ShoppingCart</a></li>
-					<li><a href=ShippingInfo.html>Shipping Information</a></li>
-					<li><a href=Checkout.html class=live>Checkout</a></li>
-                </ul>
-            </div>
-        </nav>
-        <fieldset>
+    
+   <!-- Header and Logo-->
+    <header id=mainHeader>
+        <div class=container>
+            <h1 class = 'header'> <span id = 'eSpecial'>e</span>Com</h1>
+        </div>
+    </header>
+    
+    <nav id = "mainNav">
+        <div class=navContainer>
+            <ul>
+                <li><a href=sessionHome.php>Home</a></li>
+                <li><a href=UserInfo.html>User Information</a></li>
+                <li><a href=ShoppingCart.html>ShoppingCart</a></li>
+                <li><a href=ShippingInfo.html>Shipping Information</a></li>
+                <li><a href=Checkout.html class='live'>Checkout</a></li>
+            </ul>
+        </div>
+    </nav>
+       
+    <fieldset>
             <form action = "server.php" target = "_blank"  method = "POST" name = "checkoutForm"> 
             <div class = "app-container">
                 <p>Check Out (make sure to enable cookies)</p>

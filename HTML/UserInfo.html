@@ -5,23 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>E-Commerce Shopping Cart</title>
+    <!--Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+
+    <!--FontAwesome Kit-->
+    <script src="https://kit.fontawesome.com/93d15b6e32.js" crossorigin="anonymous"></script>
+  
+    <!-- JavaScript -->
     <script src="../JS/main.js"></script>
+    
+    <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    <!-- style -->
     <link rel=stylesheet href="../CSS/styles.css">
 </head>
 <body>
 
+    <!-- Header and Logo-->
     <header id=mainHeader>
         <div class=container>
-            <h1>
-                E-Commerce Shopping Cart
-            </h1>
+            <h1 class = 'header'> <span id = 'eSpecial'>e</span>Com</h1>
         </div>
     </header>
 
     <nav id = "mainNav">
-        <div class=container>
+        <div class=navContainer>
             <ul>
+                <li><a href=sessionHome.php>Home</a></li>
                 <li><a href=UserInfo.html class=live>User Information</a></li>
                 <li><a href=ShoppingCart.html>ShoppingCart</a></li>
                 <li><a href=ShippingInfo.html>Shipping Information</a></li>
@@ -42,7 +54,7 @@
         </p>
     </div>
 
-    <form name = "userInfo" action = "http://localhost:1234/cs3320_userInfo.php" onsubmit = "return validateForm()" method = "POST">
+    <form name = "userInfo" action = "http://localhost:1234/cs3320/cs3320_userInfo.php" onsubmit = "return validateForm()" method = "POST">
             <fieldset>
             
                 <legend>User information: </legend>
