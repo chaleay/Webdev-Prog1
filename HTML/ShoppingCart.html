@@ -21,7 +21,7 @@
     <!-- style -->
     <link rel=stylesheet href="../CSS/styles.css">
 </head>
-<body>
+<body onload="OnShoppingCartPageLoad();">
     
     <!-- Header and Logo-->
     <header id=mainHeader>
@@ -42,10 +42,10 @@
         </div>
     </nav>
          
-        <form action = "http://localhost:1234/cs3320/cs3320_cart.php" name = "productForm" method="POST">
+         <form action = "" name = "productForm"> 
             <!--css uses this class if styling product purchase field-->
             <fieldset> 
-            <div class = "productPurchaseField"> 
+            <div class = "productPurchaseField centerThis"> 
                    
                     
                     Product
@@ -59,7 +59,7 @@
                     <!--javascript code to detect if keypress is a number... move to js file-->
                     <input id = "numUnits0" type = "text" onkeypress='return validInput()' onchange = 'CalculateTotalUnitPrice(this)' name = "unitsNumber" value = "" placeholder="# Unit" maxlength="9" style="width: 50px;"/>
                     <input id ="unitPrice0" type="text" name="unit0" value="" placeholder = "Price" readonly style="width: 50px;">
-                    <input type = "submit" value = "Add to Cart" name="submit">
+                    <button type="button" onclick='AddToCart()' name="submit">Add to Cart</button>
       
             </div>
             <input type="text" name="totalPrice" value="Total Price" readonly style="width: 90px;">

@@ -52,6 +52,8 @@ function validInput2(){
   return (event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 47);
 }
 
+
+//SHOPPING CAR FUNCTIONS
 function calculateUnitPrice(select){
       //reset total price/units number if new item selected
       ShoppingReset();   
@@ -126,13 +128,15 @@ function AddToCart()
   ShoppingReset();
 
   //store session vars
-  sessionStorage.setItem("cart", cart);
+  sessionStorage.setItem("cart", JSON.stringify(cart));
   sessionStorage.setItem("totalPrice", totalPrice);
   
 }
 
 function CalculateTotalPrice(){
+  //need to get vars from session storage
   totalPrice = 0;
+
   var totalPriceVal = document.forms["productForm"]["totalPrice"];
   cart.forEach(function(element){
       totalPrice += element.price * element.units;
@@ -163,6 +167,20 @@ function ValidateCartAdd(){
     return true;
   }
 
+  function OnShoppingCartPageLoad(){
+    
+    //RELOAD CART SAVED IN SESSION STORAGE WHEN RELOADING PAGE
+    
+    cart = JSON.parse(sessionStorage.getItem('cart'));
+    //cart still null after loading from sess storage
+    if(!cart){
+      cart = new Array();
+      return;
+    }
+    //CALC TOTAL PRICE USING ARRAY WE JUST LOADED
+     CalculateTotalPrice();
+  }
+  //end shopping cart functions
 function OnCheckoutPageLoad(){
   //get form elements
   totalPrice =  parseFloat(sessionStorage.getItem('totalPrice'));

@@ -64,6 +64,10 @@ body{
     font-size: 3em;
    
   }
+  
+.centerThis{
+    text-align: center;
+}
 
 /* #jumbo {
     background-image: url('../Borders.png');

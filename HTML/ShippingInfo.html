@@ -43,11 +43,10 @@
 
         <form action = "http://localhost:1234/cs3320/cs3320_shippingInfo.php" name = "shippingInfo" method="POST">
                 <fieldset>
-    
-                    <legend>User information: </legend>
+                    <div class ="centerThis">
+                    <legend>Shipping Info </legend>
     
                     
-                    Shipping Info: <br>
                     Use Physical Address: <input type=checkbox onclick = 'LoadShippingInfo(this)' name="physicalAddressCheckbox"> <br>
                     <input type = "text" name = "address1" value = "" placeholder="address line 1..." maxlength="100"> <br>
                     <input type = "text" name = "address2" value = "" placeholder="address line 2..." maxlength="100"> <br>
@@ -63,7 +62,7 @@
     
                     <input type = "submit" value = "submit" name="submit">
     
-        
+                    </div>
                 </fieldset>
             </form>
 </body>

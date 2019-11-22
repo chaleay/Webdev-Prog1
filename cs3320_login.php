@@ -29,7 +29,7 @@
 
   <div class="main">
     <p class="sign" align="center">Sign in</p>
-    <form class="form1" name = "loginForm" action = "http://localhost:1234/cs3320/cs3320_loginVerify.php" method="POST">
+    <form class="form1" name = "loginForm" action = "http://localhost:1234/cs3320/HTML/sessionHome.php" method="POST">
       <input class="un" name = 'userName' type="text" align="center" placeholder="Username">
       <input class="pass" name='password' type="password" align="center" placeholder="Password">
       <input class='submit' type = "submit" value = "Submit" name="submit">
