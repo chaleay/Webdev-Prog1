@@ -20,7 +20,7 @@
      
      <!-- style -->
      <link rel=stylesheet href="../CSS/styles.css">
-
+    
 </head>
 <body onload="OnCheckoutPageLoad();">
     
@@ -35,16 +35,15 @@
         <div class=navContainer>
             <ul>
                 <li><a href=sessionHome.php>Home</a></li>
-                <li><a href=UserInfo.html>User Information</a></li>
-                <li><a href=ShoppingCart.html>ShoppingCart</a></li>
-                <li><a href=ShippingInfo.html>Shipping Information</a></li>
-                <li><a href=Checkout.html class='live'>Checkout</a></li>
+                <li><a href=UserInfo.php>User Information</a></li>
+                <li><a href=ShoppingCart.php>ShoppingCart</a></li>
+                <li><a href=ShippingInfo.php>Shipping Information</a></li>
             </ul>
         </div>
     </nav>
        
     <fieldset>
-            <form action = "server.php" target = "_blank"  method = "POST" name = "checkoutForm"> 
+            <form action = "Confirm.php" target = "_blank"  method = "POST" name = "checkoutForm"> 
             <div class = "centerThis">
                 <p>Check Out (make sure to enable cookies)</p>
                

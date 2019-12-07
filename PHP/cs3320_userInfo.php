@@ -55,6 +55,22 @@ if(isset($_POST['submit'])){
         $zip = Trim($_POST['zipcode']);
 
     }
+
+    if(empty($_POST['email'])){
+        $data_missing[] = 'email';
+    }
+    else{
+        $email = Trim($_POST['email']);
+
+    }
+
+    if(empty($_POST['phone'])){
+        $data_missing[] = 'phone';
+    }
+    else{
+        $phone = Trim($_POST['phone']);
+
+    }
     
 
     //just sql for reference later
@@ -72,6 +88,8 @@ if(isset($_POST['submit'])){
             echo "User Info Saved";
             mysqli_stmt_close($stmt);
             mysqli_close($dbc);
+            header("Location: ShoppingCart.php?userInfo=success");
+            exit(); 
         }
         else{
             echo "Error occured<br>";
@@ -81,7 +99,7 @@ if(isset($_POST['submit'])){
         }
 
     }else{
-        echo 'You need to enter the following data <br>';
+        echo 'You need to enter the following data <br>. Press back on your browser to resubmit info.';
 
         foreach($data_missing as $missing){
             echo "$missing<br>";

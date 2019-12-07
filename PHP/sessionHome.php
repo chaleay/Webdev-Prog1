@@ -1,5 +1,9 @@
-<html>
+<?php
+    session_start();
+?>
 
+
+<html>
 <head>
    <!-- Required meta tags -->
    <meta charset="utf-8">
@@ -36,14 +40,14 @@
     <div class=navContainer>
         <ul>
             <li><a href=sessionHome.php class=live>Home</a></li>
-            <li><a href=UserInfo.html>User Information</a></li>
-            <li><a href=ShoppingCart.html>ShoppingCart</a></li>
-            <li><a href=ShippingInfo.html>Shipping Information</a></li>
-            <li><a href=Checkout.html>Checkout</a></li>
+            <li><a href=UserInfo.php>Create New Order</a></li>
         </ul>
     </div>
 </nav>
 
+    <div class = "navContainer">
+        <h1>Welcome, User.</h1>
+    </div>
     
 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

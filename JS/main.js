@@ -18,30 +18,24 @@ var currentlySelectedItem = null;
 var totalPrice = 0;
 var completeTotal = 0;
 
-function validateForm() {
-    var phone = document.forms["myForm"]["phone"].value;
-    var email = document.forms["myForm"]["email"].value;
-    
-    var phoneCorrect = false;
-    var emailCorrect = false;
-    if (!phone == "" && phoneRegex.test(phone)) {
-        phoneCorrect =  true;
-    }
+function ValidateEmail(emailInput) {
+  if(!emailRegex.test(emailInput.value)){
+    alert("Invalid email format, please enter again.")
+    emailInput.value = "";
+    return false;
+  }
 
-    if(!email == "" && emailRegex.test(email)){
-        emailCorrect =  true;
-    }
+  return true;
+}
 
-    if(!phoneCorrect)
-    {
-      alert("Please enter a valid phone number.");
-    }
+function ValidatePhone(phoneInput) {
+  if(!phoneRegex.test(phoneInput.value)){
+    alert("Invalid phone format, please enter again.")
+    phoneInput.value = "";
+    return false;
+  }
 
-    if(!emailCorrect){
-      alert("Please enter a valid email address.");
-    }
-
-      return phoneCorrect && emailCorrect;
+  return true;
 }
 
 function validInput(){
@@ -267,7 +261,6 @@ function ValidateInformation(){
 
   if(cardNum.value != "" && cardExp.value != "" && terms.checked == true){
     alert("success");
-    window.location.href = "Confirm.html";
     return true;
   }
   else{

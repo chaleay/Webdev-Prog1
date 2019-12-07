@@ -40,6 +40,22 @@ if(isset($_POST['submit'])){
         $zip = Trim($_POST['zipcode']);
 
     }
+
+    if(empty($_POST['email'])){
+        $data_missing[] = 'email';
+    }
+    else{
+        $email = Trim($_POST['email']);
+
+    }
+
+    if(empty($_POST['phone'])){
+        $data_missing[] = 'phone';
+    }
+    else{
+        $phone = Trim($_POST['phone']);
+
+    }
     
 
     //just sql for reference later
@@ -54,9 +70,11 @@ if(isset($_POST['submit'])){
 
         $affected_rows = mysqli_stmt_affected_rows($stmt);
         if($affected_rows == 1){
-            echo "User Info Saved";
+            echo "Shipping Info Saved";
             mysqli_stmt_close($stmt);
             mysqli_close($dbc);
+            header("Location: Checkout.php?shippingInfo=success");
+            exit();
         }
         else{
             echo "Error occured<br>";

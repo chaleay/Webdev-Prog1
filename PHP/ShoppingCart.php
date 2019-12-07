@@ -34,15 +34,12 @@
         <div class=navContainer>
             <ul>
                 <li><a href=sessionHome.php>Home</a></li>
-                <li><a href=UserInfo.html>User Information</a></li>
-                <li><a href=ShoppingCart.html class=live>ShoppingCart</a></li>
-                <li><a href=ShippingInfo.html>Shipping Information</a></li>
-                <li><a href=Checkout.html>Checkout</a></li>
+                <li><a href=UserInfo.php>User Information</a></li>
             </ul>
         </div>
     </nav>
          
-         <form action = "" name = "productForm"> 
+         <form action = "ShippingInfo.php" name = "productForm"> 
             <!--css uses this class if styling product purchase field-->
             <fieldset> 
             <div class = "productPurchaseField centerThis"> 
@@ -65,7 +62,7 @@
             <input type="text" name="totalPrice" value="Total Price" readonly style="width: 90px;">
             <button type="button"  onclick= 'ShowCart()'>See Cart</button>
             </fieldset>
-
+            <input class = "centerButton" type = "submit" value = "Next" name="submit">
         </form>
     </body>
 </html>

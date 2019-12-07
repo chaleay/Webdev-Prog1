@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,10 +38,10 @@
         <div class=navContainer>
             <ul>
                 <li><a href=sessionHome.php>Home</a></li>
-                <li><a href=UserInfo.html>User Information</a></li>
-                <li><a href=ShoppingCart.html>ShoppingCart</a></li>
-                <li><a href=ShippingInfo.html>Shipping Information</a></li>
-                <li><a href=Checkout.html>Checkout</a></li>
+                <li><a href=UserInfo.php>User Information</a></li>
+                <li><a href=ShoppingCart.php>ShoppingCart</a></li>
+                <li><a href=ShippingInfo.php>Shipping Information</a></li>
+                <li><a href=Checkout.php>Checkout</a></li>
             </ul>
         </div>
     </nav>

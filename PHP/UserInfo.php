@@ -34,10 +34,6 @@
         <div class=navContainer>
             <ul>
                 <li><a href=sessionHome.php>Home</a></li>
-                <li><a href=UserInfo.html class=live>User Information</a></li>
-                <li><a href=ShoppingCart.html>ShoppingCart</a></li>
-                <li><a href=ShippingInfo.html>Shipping Information</a></li>
-                <li><a href=Checkout.html>Checkout</a></li>
             </ul>
         </div>
     </nav>
@@ -54,7 +50,7 @@
         </p>
     </div>
 
-    <form name = "userInfo" action = "http://localhost:1234/cs3320/cs3320_userInfo.php" onsubmit = "return validateForm()" method = "POST">
+    <form name = "userInfo" action = "http://localhost:1234/cs3320/PHP/cs3320_userInfo.php" onsubmit = "" method = "POST">
             <fieldset>
             <div class ="centerThis">
                 <legend>User information: </legend>
@@ -124,11 +120,11 @@
 	<option value="WI">Wisconsin</option>
 	<option value="WY">Wyoming</option>
                 </select> <br>
-                <input type = "text" name = "zipcode" value = "" minlength="5" placeholder="zipcode goes here..." maxlength="9"> <br>
-                <input type = "text" name = "phone" value = "" placeholder="###-###-####" maxlength="12"> <br>
-                <input type = "text" name = "email" value = "" placeholder="email goes here..." maxlength="100"> <br>
+                <input type = "text" name = "zipcode"  value = "" minlength="5" placeholder="zipcode goes here..." maxlength="9"> <br>
+                <input type = "text" name = "phone"  value = "" placeholder="###-###-####" onchange="return ValidatePhone(this)"> <br>
+                <input type = "text" name = "email" value = "" placeholder="email goes here..." maxlength="100" onchange="return ValidateEmail(this)"> <br>
 
-                <input type = "submit" onclick='StoreShippingInfo()'value = "submit" name="submit">
+                <input type = "submit" onclick='StoreShippingInfo()'value = "Next" name="submit">
 
     </div>
             </fieldset>
